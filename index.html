@@ -1,324 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hybrid IAM Homelab | Joshua Bardari</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #007dc1; /* Okta Blue */
-            --secondary: #005fb8; /* Microsoft Blue */
-            --salesforce: #00a1e0; /* Salesforce Blue */
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --text: #334155;
-            --border: #e2e8f0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--light);
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--dark) 0%, #0f172a 100%);
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-top: 0.5rem;
-        }
-
-        .contact-links {
-            margin-top: 1.5rem;
-        }
-
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .contact-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Container */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        /* Architecture Section */
-        .arch-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .arch-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--primary);
-        }
-
-        .arch-card h3 { margin-top: 0; color: var(--dark); font-size: 1rem; }
-        .arch-card p { margin-bottom: 0; font-weight: 600; color: var(--text); }
-
-        /* Phases */
-        .phase {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border);
-        }
-
-        .phase h2 {
-            color: var(--dark);
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0.5rem;
-            margin-top: 0;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .bg-win { background-color: #e6f2ff; color: var(--secondary); }
-        .bg-okta { background-color: #e0f2fe; color: var(--primary); }
-        .bg-sf { background-color: #e0f7fa; color: var(--salesforce); }
-
-        ul { padding-left: 1.2rem; }
-        li { margin-bottom: 0.5rem; }
-
-        /* Screenshots / Evidence */
-        .evidence-box {
-            background-color: #f1f5f9;
-            border: 2px dashed #cbd5e1;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 1rem;
-            color: #64748b;
-        }
-        
-        .evidence-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-            margin-top: 10px;
-            display: block; 
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: #64748b;
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            margin-top: 4rem;
-        }
-
-        .diagram-placeholder {
-            background-color: white;
-            padding: 2rem;
-            text-align: center;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border);
-        }
-    </style>
 </head>
-<body>
+<body style="max-width: 800px; margin: auto; padding: 20px; font-family: Arial, sans-serif;">
 
-    <header>
+    <header style="text-align: center; border-bottom: 2px solid #333; padding-bottom: 20px;">
         <h1>Enterprise Hybrid Identity & IAM Homelab</h1>
         <p>Implementing Okta, Active Directory, and Salesforce SAML in a Hybrid Environment</p>
         
-        <div class="contact-links">
-            <a href="https://github.com/[YOUR_USERNAME]" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://linkedin.com/in/[YOUR_PROFILE]" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="mailto:joshuabardari@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
-        </div>
+        <p>
+            <a href="https://github.com/[YOUR_USERNAME]" target="_blank">GitHub Profile</a> | 
+            <a href="https://linkedin.com/in/[YOUR_PROFILE]" target="_blank">LinkedIn Profile</a> | 
+            <a href="mailto:joshuabardari@gmail.com">Email Me</a>
+        </p>
     </header>
 
-    <div class="container">
+    <section>
+        <h2>Project Overview</h2>
+        <p>
+            In this project, I deployed a full <strong>Hybrid Identity</strong> solution integrating an on-premise <strong>Windows Server Active Directory</strong> with <strong>Okta Cloud</strong>. 
+            I configured <strong>Delegated Authentication</strong> to centralize credential management and established <strong>SAML federation</strong> with Salesforce, 
+            reducing login friction while enforcing <strong>Zero Trust MFA policies</strong>.
+        </p>
+    </section>
 
-        <section>
-            <h2>Project Overview</h2>
-            <p>
-                In this project, I deployed a full <strong>Hybrid Identity</strong> solution integrating an on-premise <strong>Windows Server Active Directory</strong> with <strong>Okta Cloud</strong>. 
-                I configured <strong>Delegated Authentication</strong> to centralize credential management and established <strong>SAML federation</strong> with Salesforce, 
-                reducing login friction while enforcing <strong>Zero Trust MFA policies</strong>.
-            </p>
-        </section>
+    <hr>
 
-        <section class="arch-grid">
-            <div class="arch-card">
-                <h3><i class="fab fa-windows"></i> Directory Source</h3>
-                <p>Windows Server 2022 AD DS</p>
-            </div>
-            <div class="arch-card">
-                <h3><i class="fas fa-cloud"></i> Identity Provider</h3>
-                <p>Okta Developer Edition</p>
-            </div>
-            <div class="arch-card">
-                <h3><i class="fab fa-salesforce"></i> Service Provider</h3>
-                <p>Salesforce Enterprise (SAML)</p>
-            </div>
-            <div class="arch-card">
-                <h3><i class="fas fa-laptop"></i> Client</h3>
-                <p>Windows 10/11 Endpoint</p>
-            </div>
-        </section>
+    <section>
+        <h3>Architecture Components</h3>
+        <ul>
+            <li><strong>Directory Source:</strong> Windows Server 2022 AD DS</li>
+            <li><strong>Identity Provider:</strong> Okta Developer Edition</li>
+            <li><strong>Service Provider:</strong> Salesforce Enterprise (SAML)</li>
+            <li><strong>Client:</strong> Windows 10/11 Endpoint</li>
+        </ul>
 
-        <div class="diagram-placeholder">
-            <p style="color:#64748b; font-style: italic;">[Architecture Diagram: User -> Okta -> AD Agent -> Active Directory]</p>
+        <div style="border: 1px solid #ccc; padding: 20px; text-align: center; margin-bottom: 20px;">
+            <p><em>[Insert your Architecture Diagram Image Here]</em></p>
         </div>
+    </section>
 
-        <div class="phase">
-            <h2>Phase 1: Infrastructure (Active Directory)</h2>
-            <div>
-                <span class="badge bg-win">Windows Server 2022</span>
-                <span class="badge bg-win">VirtualBox</span>
-                <span class="badge bg-win">AD DS</span>
-            </div>
-            <p>To simulate a realistic enterprise environment, I deployed a local Domain Controller rather than relying solely on cloud directories.</p>
-            <ul>
-                <li>Deployed <strong>Windows Server 2022</strong> on a Virtual Machine with static IPv4 configuration.</li>
-                <li>Promoted the server to a <strong>Domain Controller</strong> (Forest: <code>iamlab.local</code>).</li>
-                <li>Created a dedicated Organizational Unit (OU) <code>Okta_Sync</code> and provisioned test users (e.g., alice.ad) to simulate employee onboarding.</li>
-            </ul>
+    <hr>
+
+    <section>
+        <h2>Phase 1: Infrastructure (Active Directory)</h2>
+        <p><strong>Tech Stack:</strong> Windows Server 2022, VirtualBox, AD DS</p>
+        
+        <p>To simulate a realistic enterprise environment, I deployed a local Domain Controller rather than relying solely on cloud directories.</p>
+        <ul>
+            <li>Deployed <strong>Windows Server 2022</strong> on a Virtual Machine with static IPv4 configuration.</li>
+            <li>Promoted the server to a <strong>Domain Controller</strong> (Forest: <code>iamlab.local</code>).</li>
+            <li>Created a dedicated Organizational Unit (OU) <code>Okta_Sync</code> and provisioned test users (e.g., alice.ad) to simulate employee onboarding.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Phase 2 & 3: Hybrid Directory Integration</h2>
+        <p><strong>Tech Stack:</strong> Okta AD Agent, Delegated Auth, JIT Provisioning</p>
+
+        <p>The core of this project was bridging the gap between legacy on-premise infrastructure and modern cloud identity.</p>
+        <ul>
+            <li>Created a <strong>Service Account</strong> in AD with specific permissions for the Okta Agent.</li>
+            <li>Installed the <strong>Okta AD Agent</strong> on the Windows Server to open a secure outbound connection (no firewall ports opened).</li>
+            <li>Configured <strong>Delegated Authentication</strong>, allowing users to authenticate to Okta using their on-premise AD passwords.</li>
+            <li>Enabled <strong>Just-In-Time (JIT) Provisioning</strong> to automatically create Okta user profiles when an AD user signs in for the first time.</li>
+        </ul>
+        
+        <div style="background-color: #f0f0f0; padding: 15px; border: 1px dashed #999;">
+            <p><strong>Proof of Sync:</strong></p>
+            <img src="images/ad-sync-proof.png" alt="Okta User List showing AD Sync" width="100%">
         </div>
+    </section>
 
-        <div class="phase">
-            <h2>Phase 2 & 3: Hybrid Directory Integration</h2>
-            <div>
-                <span class="badge bg-okta">Okta AD Agent</span>
-                <span class="badge bg-okta">Delegated Auth</span>
-                <span class="badge bg-okta">JIT Provisioning</span>
-            </div>
-            <p>The core of this project was bridging the gap between legacy on-premise infrastructure and modern cloud identity.</p>
-            <ul>
-                <li>Created a <strong>Service Account</strong> in AD with specific permissions for the Okta Agent.</li>
-                <li>Installed the <strong>Okta AD Agent</strong> on the Windows Server to open a secure outbound connection (no firewall ports opened).</li>
-                <li>Configured <strong>Delegated Authentication</strong>, allowing users to authenticate to Okta using their on-premise AD passwords.</li>
-                <li>Enabled <strong>Just-In-Time (JIT) Provisioning</strong> to automatically create Okta user profiles when an AD user signs in for the first time.</li>
-            </ul>
-            
-            <div class="evidence-box">
-                <p><strong>Proof of Sync:</strong> Okta People tab showing users sourced from Active Directory.</p>
-                <img src="images/ad-sync-proof.png" alt="Okta User List showing AD Sync" class="evidence-img"> 
-            </div>
+    <section>
+        <h2>Phase 4: SAML Single Sign-On (SSO)</h2>
+        <p><strong>Tech Stack:</strong> Salesforce, SAML 2.0, Federation</p>
+
+        <p>I eliminated password fatigue by configuring Federation between Okta and Salesforce.</p>
+        <ul>
+            <li>Configured Salesforce as a Service Provider (SP) within the Okta App Catalog.</li>
+            <li>Exchanged <strong>X.509 Certificates</strong> and Issuer URLs to establish a trust relationship.</li>
+            <li>Mapped Okta attributes to Salesforce Federation IDs to ensure correct user matching.</li>
+            <li>Validated the <strong>SP-Initiated</strong> and <strong>IdP-Initiated</strong> login flows.</li>
+        </ul>
+
+        <div style="background-color: #f0f0f0; padding: 15px; border: 1px dashed #999;">
+            <p><strong>Proof of SSO:</strong></p>
+            <img src="images/sso-log-success.png" alt="System Log SSO Success" width="100%">
         </div>
+    </section>
 
-        <div class="phase">
-            <h2>Phase 4: SAML Single Sign-On (SSO)</h2>
-            <div>
-                <span class="badge bg-sf">Salesforce</span>
-                <span class="badge bg-okta">SAML 2.0</span>
-                <span class="badge bg-okta">Federation</span>
-            </div>
-            <p>I eliminated password fatigue by configuring Federation between Okta and Salesforce.</p>
-            <ul>
-                <li>Configured Salesforce as a Service Provider (SP) within the Okta App Catalog.</li>
-                <li>Exchanged <strong>X.509 Certificates</strong> and Issuer URLs to establish a trust relationship.</li>
-                <li>Mapped Okta attributes to Salesforce Federation IDs to ensure correct user matching.</li>
-                <li>Validated the <strong>SP-Initiated</strong> and <strong>IdP-Initiated</strong> login flows.</li>
-            </ul>
+    <section>
+        <h2>Phase 5: Security Policies (MFA)</h2>
+        <p><strong>Tech Stack:</strong> Okta Verify, Zero Trust, Context-Based Access</p>
 
-            <div class="evidence-box">
-                <p><strong>Proof of SSO:</strong> System Log showing successful SAML assertion.</p>
-                <img src="images/sso-log-success.png" alt="System Log SSO Success" class="evidence-img">
-            </div>
+        <p>Finally, I hardened the environment by implementing context-based access policies.</p>
+        <ul>
+            <li>Activated <strong>Okta Verify</strong> as a possession factor (Something you have).</li>
+            <li>Configured a <strong>Global Session Policy</strong> to challenge users for MFA when logging in from a new IP address or device.</li>
+            <li>Tested "Impossible Travel" scenarios and unknown device logins to verify the challenge occurred.</li>
+        </ul>
+
+        <div style="background-color: #f0f0f0; padding: 15px; border: 1px dashed #999;">
+            <p><strong>Proof of MFA:</strong></p>
+            <img src="images/mfa-verify.png" alt="MFA Verification Log" width="100%">
         </div>
+    </section>
 
-        <div class="phase">
-            <h2>Phase 5: Security Policies (MFA)</h2>
-            <div>
-                <span class="badge bg-okta">Okta Verify</span>
-                <span class="badge bg-okta">Zero Trust</span>
-                <span class="badge bg-okta">Context-Based Access</span>
-            </div>
-            <p>Finally, I hardened the environment by implementing context-based access policies.</p>
-            <ul>
-                <li>Activated <strong>Okta Verify</strong> as a possession factor (Something you have).</li>
-                <li>Configured a <strong>Global Session Policy</strong> to challenge users for MFA when logging in from a new IP address or device.</li>
-                <li>Tested "Impossible Travel" scenarios and unknown device logins to verify the challenge occurred.</li>
-            </ul>
+    <section>
+        <h2>Phase 6: Mobile Experience (Okta Verify)</h2>
+        <p><strong>Tech Stack:</strong> iOS / Android, Multi-User Support</p>
 
-            <div class="evidence-box">
-                <p><strong>Proof of MFA:</strong> System log showing MFA challenge and verification.</p>
-                <img src="images/mfa-verify.png" alt="MFA Verification Log" class="evidence-img">
-            </div>
+        <p>To validate the user lifecycle across the entire organization, I provisioned multiple test users and enrolled them into the Okta Verify mobile app.</p>
+        <ul>
+            <li>Simulated the end-user onboarding experience by setting up MFA on a mobile device.</li>
+            <li>Verified that multiple distinct identities from Active Directory were successfully synced.</li>
+            <li>Confirmed that Push Notifications arrive instantly for the correct user context.</li>
+        </ul>
+
+        <div style="background-color: #f0f0f0; padding: 15px; border: 1px dashed #999; text-align: center;">
+            <p><strong>Proof of Enrollment:</strong></p>
+            <img src="images/okta-verify-mobile.png" alt="Phone screenshot of Okta Verify" width="300">
         </div>
+    </section>
 
-        <div class="phase">
-            <h2>Phase 6: Mobile Experience (Okta Verify)</h2>
-            <div>
-                <span class="badge bg-okta">iOS / Android</span>
-                <span class="badge bg-okta">Multi-User Support</span>
-                <span class="badge bg-okta">MFA Enrollment</span>
-            </div>
-            <p>
-                To validate the user lifecycle across the entire organization, I provisioned multiple test users (Alice, Bob, and Service Admin) and enrolled them into the <strong>Okta Verify</strong> mobile app.
-            </p>
-            <ul>
-                <li>Simulated the end-user onboarding experience by setting up MFA on a mobile device.</li>
-                <li>Verified that multiple distinct identities from Active Directory were successfully synced and capable of independent authentication.</li>
-                <li>Confirmed that Push Notifications arrive instantly for the correct user context.</li>
-            </ul>
+    <hr>
 
-            <div class="evidence-box">
-                <p><strong>Proof of Enrollment:</strong> Okta Verify mobile app showing multiple active user accounts synced from AD.</p>
-                
-                <img src="images/okta-verify-mobile.png" 
-                     alt="Phone screenshot of Okta Verify showing 3 users" 
-                     class="evidence-img" 
-                     style="max-width: 300px;">
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>&copy; :) </p>
+    <footer style="text-align: center; padding: 20px; font-size: 0.8em; color: #666;">
+        <p>&copy; 2026 Joshua Bardari. Built for the Foxy's IT Services Application.</p>
     </footer>
 
 </body>
