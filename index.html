@@ -29,7 +29,7 @@
 
         /* CONTAINER */
         .container {
-            max-width: 800px;
+            max-width: 900px; /* Increased slightly to fit side-by-side images better */
             margin: 0 auto;
         }
 
@@ -159,7 +159,32 @@
 
         /* PHONE IMAGE SPECIFIC */
         .phone-img {
-            max-width: 280px; /* Limits width for vertical screenshots */
+            max-width: 100%; /* Changed to fit flex container */
+            max-height: 400px; /* Ensure they don't get too tall */
+        }
+
+        /* NEW GRID FOR MOBILE PHASE */
+        .mobile-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap; /* Wraps on small screens */
+            margin-top: 20px;
+        }
+
+        .mobile-grid .evidence-box {
+            margin-top: 0; /* Reset margin inside grid */
+            flex: 1;       /* Distribute space evenly */
+            min-width: 200px; /* Prevent crushing on mobile */
+            max-width: 30%;   /* Try to fit 3 in a row */
+        }
+
+        /* On very small screens, make them stack 100% wide */
+        @media (max-width: 600px) {
+            .mobile-grid .evidence-box {
+                max-width: 100%;
+                flex: 100%;
+            }
         }
 
         /* FOOTER */
@@ -197,8 +222,8 @@
             <div class="author-card">
                 <img src="images/rusty_cat.jpg" alt="Rusty the Cat" class="author-img">
                 <div class="author-info">
-                    <span class="author-name">Rusty</span>
-                    <span class="author-role">Assistant</span>
+                    <span class="author-name">Rusty (Cat)</span>
+                    <span class="author-role">Assistant / Moral Support</span>
                 </div>
             </div>
         </div>
@@ -206,9 +231,9 @@
         <section>
             <h2>Project Overview</h2>
             <p>
-                In this homelab project I deployed a full <strong>Hybrid Identity</strong> solution integrating an on-premise <strong>Windows Server Active Directory</strong> with <strong>Okta Cloud</strong> acting as an Identity Provider (IdP). 
-                I configured <strong>Delegated Authentication</strong> to centralize credential management and established <strong>SAML federation</strong> with Salesforce acting as a Service Provider (SP), 
-                reducing login friction while enforcing <strong>Zero Trust MFA policies</strong>. Thank you to @sweeeezyit on TikTok for the idea! :)
+                In this project, I deployed a full <strong>Hybrid Identity</strong> solution integrating an on-premise <strong>Windows Server Active Directory</strong> with <strong>Okta Cloud</strong>. 
+                I configured <strong>Delegated Authentication</strong> to centralize credential management and established <strong>SAML federation</strong> with Salesforce, 
+                reducing login friction while enforcing <strong>Zero Trust MFA policies</strong>.
             </p>
         </section>
 
@@ -231,15 +256,15 @@
             <h2>Phase 1: Infrastructure (Active Directory)</h2>
             <div>
                 <span class="badge">Windows Server 2022</span>
-                <span class="badge">Virtualization</span>
+                <span class="badge">VirtualBox</span>
                 <span class="badge">AD DS</span>
             </div>
             
-            <p>Simulating an enterprise environment, I deployed a local Windows Server 2022 Domain Controller on a virtual machine.</p>
+            <p>To simulate a realistic enterprise environment, I deployed a local Domain Controller rather than relying solely on cloud directories.</p>
             <ul>
                 <li>Deployed <strong>Windows Server 2022</strong> on a Virtual Machine with static IPv4 configuration.</li>
                 <li>Promoted the server to a <strong>Domain Controller</strong> (Forest: <code>iamlab.local</code>).</li>
-                <li>Created a dedicated Organizational Unit (OU) <code>Okta_Sync</code> and provisioned test users (Rusty, Joshua) to simulate employee onboarding.</li>
+                <li>Created a dedicated Organizational Unit (OU) <code>Okta_Sync</code> and provisioned test users (e.g., alice.ad) to simulate employee onboarding.</li>
             </ul>
 
             <div class="evidence-box">
@@ -256,7 +281,7 @@
                 <span class="badge">JIT Provisioning</span>
             </div>
 
-            <p>The core of this project was bridging the gap between on-premise directory infrastructure and modern cloud identity.</p>
+            <p>The core of this project was bridging the gap between legacy on-premise infrastructure and modern cloud identity.</p>
             <ul>
                 <li>Created a <strong>Service Account</strong> in AD with specific permissions for the Okta Agent.</li>
                 <li>Installed the <strong>Okta AD Agent</strong> on the Windows Server to open a secure outbound connection (no firewall ports opened).</li>
@@ -278,7 +303,7 @@
                 <span class="badge">Federation</span>
             </div>
 
-            <p>I eliminated password fatigue by configuring Federation between Okta and Salesforce, allowing users to log into Salesforce and Okta with one login</p>
+            <p>I eliminated password fatigue by configuring Federation between Okta and Salesforce.</p>
             <ul>
                 <li>Configured Salesforce as a Service Provider (SP) within the Okta App Catalog.</li>
                 <li>Exchanged <strong>X.509 Certificates</strong> and Issuer URLs to establish a trust relationship.</li>
@@ -292,7 +317,7 @@
             </div>
 
             <div class="evidence-box">
-                <span class="evidence-label">End-User Dashboards with Salesforce (joshua Admin, Rusty, Joshua </span>
+                <span class="evidence-label">End-User Dashboard with Salesforce</span>
                 <img src="images/okta_dashboard_salesforce.png" alt="User Dashboard showing Salesforce App">
             </div>
         </section>
@@ -313,13 +338,13 @@
             </ul>
 
             <div class="evidence-box">
-                <span class="evidence-label">Authenticator Configuration</span>
-                <img src="images/authenticators_config.png" alt="Okta Authenticators Configuration">
-            </div>
-            
-            <div class="evidence-box">
                 <span class="evidence-label">Proof of MFA</span>
                 <img src="images/mfa-verify.png" alt="MFA Verification Log">
+            </div>
+
+            <div class="evidence-box">
+                <span class="evidence-label">Authenticator Configuration</span>
+                <img src="images/authenticators_config.png" alt="Okta Authenticators Configuration">
             </div>
         </section>
 
@@ -337,21 +362,26 @@
                 <li>Confirmed that Push Notifications arrive instantly for the correct user context.</li>
             </ul>
 
-            <div class="evidence-box">
-                <span class="evidence-label">Proof of Enrollment</span>
-                <img src="images/okta-verify-mobile.png" alt="Phone screenshot of Okta Verify" class="phone-img">
-            </div>
+            <div class="mobile-grid">
+                
+                <div class="evidence-box">
+                    <span class="evidence-label">Proof of Enrollment</span>
+                    <img src="images/okta-verify-mobile.png" alt="Phone screenshot of Okta Verify" class="phone-img">
+                </div>
 
-            <div class="evidence-box">
-                <span class="evidence-label">Mobile Login Flow</span>
-                <img src="images/mobile_login.png" alt="Mobile Login Screen" class="phone-img">
-            </div>
+                <div class="evidence-box">
+                    <span class="evidence-label">Mobile Login Flow</span>
+                    <img src="images/mobile_login.png" alt="Mobile Login Screen" class="phone-img">
+                </div>
 
-            <div class="evidence-box">
-                <span class="evidence-label">Mobile Dashboard Access</span>
-                <img src="images/mobile_dashboard.png" alt="Mobile Dashboard View" class="phone-img">
+                <div class="evidence-box">
+                    <span class="evidence-label">Mobile Dashboard</span>
+                    <img src="images/mobile_dashboard.png" alt="Mobile Dashboard View" class="phone-img">
+                </div>
+
             </div>
         </section>
+
         <footer>
             <p>&copy; 2026 Joshua Bardari :) </p>
         </footer>
