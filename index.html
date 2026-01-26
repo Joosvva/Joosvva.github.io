@@ -58,6 +58,52 @@
         }
         .header-links a:hover { border-bottom: 1px solid white; }
 
+        /* AUTHORS SECTION */
+        .authors-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .author-card {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid #e5e7eb;
+        }
+
+        .author-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #dcfce7;
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .author-role {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
         /* SECTIONS / CARDS */
         section {
             background-color: var(--card-bg);
@@ -140,6 +186,23 @@
             </div>
         </header>
 
+        <div class="authors-container">
+            <div class="author-card">
+                <img src="images/joshua_profile.jpg" alt="Joshua Bardari" class="author-img">
+                <div class="author-info">
+                    <span class="author-name">Joshua Bardari</span>
+                    <span class="author-role">Project Lead</span>
+                </div>
+            </div>
+            <div class="author-card">
+                <img src="images/rusty_cat.jpg" alt="Rusty the Cat" class="author-img">
+                <div class="author-info">
+                    <span class="author-name">Rusty (Cat)</span>
+                    <span class="author-role">Assistant / Moral Support</span>
+                </div>
+            </div>
+        </div>
+
         <section>
             <h2>Project Overview</h2>
             <p>
@@ -159,9 +222,9 @@
             </div>
             
           <div class="evidence-box">
-    <span class="evidence-label">Architecture Diagram</span>
-    <img src="images/architecture.png" alt="Hybrid IAM Architecture Diagram">
-</div>
+            <span class="evidence-label">Architecture Diagram</span>
+            <img src="images/architecture.png" alt="Hybrid IAM Architecture Diagram">
+        </div>
         </section>
 
         <section>
@@ -178,6 +241,11 @@
                 <li>Promoted the server to a <strong>Domain Controller</strong> (Forest: <code>iamlab.local</code>).</li>
                 <li>Created a dedicated Organizational Unit (OU) <code>Okta_Sync</code> and provisioned test users (e.g., alice.ad) to simulate employee onboarding.</li>
             </ul>
+
+            <div class="evidence-box">
+                <span class="evidence-label">AD Infrastructure Setup</span>
+                <img src="images/ad_infra_setup.png" alt="Active Directory Users and Computers Screenshot">
+            </div>
         </section>
 
         <section>
@@ -221,6 +289,11 @@
             <div class="evidence-box">
                 <span class="evidence-label">Proof of SSO</span>
                 <img src="images/sso-log-success.png" alt="System Log SSO Success">
+            </div>
+
+            <div class="evidence-box">
+                <span class="evidence-label">End-User Dashboard with Salesforce</span>
+                <img src="images/okta_dashboard_salesforce.png" alt="User Dashboard showing Salesforce App">
             </div>
         </section>
 
