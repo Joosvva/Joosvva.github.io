@@ -231,9 +231,9 @@
         <section>
             <h2>Project Overview</h2>
             <p>
-                In this project, I deployed a full <strong>Hybrid Identity</strong> solution integrating an on-premise <strong>Windows Server Active Directory</strong> with <strong>Okta Cloud</strong>. 
+                In this project I deployed a full <strong>Hybrid Identity</strong> solution integrating an on-premise <strong>Windows Server Active Directory</strong> with <strong>Okta Cloud</strong>. 
                 I configured <strong>Delegated Authentication</strong> to centralize credential management and established <strong>SAML federation</strong> with Salesforce, 
-                reducing login friction while enforcing <strong>Zero Trust MFA policies</strong>.
+                reducing login friction while enforcing <strong>Zero Trust MFA policies</strong>. Thank you to @itsweeeezy on TikTok for the project idea! :) 
             </p>
         </section>
 
@@ -281,7 +281,7 @@
                 <span class="badge">JIT Provisioning</span>
             </div>
 
-            <p>The core of this project was bridging the gap between legacy on-premise infrastructure and modern cloud identity.</p>
+            <p>The core of this project was bridging the gap between legacy on-premise directory infrastructure and modern cloud identity.</p>
             <ul>
                 <li>Created a <strong>Service Account</strong> in AD with specific permissions for the Okta Agent.</li>
                 <li>Installed the <strong>Okta AD Agent</strong> on the Windows Server to open a secure outbound connection (no firewall ports opened).</li>
@@ -303,7 +303,7 @@
                 <span class="badge">Federation</span>
             </div>
 
-            <p>I eliminated password fatigue by configuring Federation between Okta and Salesforce.</p>
+            <p>I eliminated password fatigue by configuring login Federation between Okta and Salesforce.</p>
             <ul>
                 <li>Configured Salesforce as a Service Provider (SP) within the Okta App Catalog.</li>
                 <li>Exchanged <strong>X.509 Certificates</strong> and Issuer URLs to establish a trust relationship.</li>
@@ -355,7 +355,7 @@
                 <span class="badge">Multi-User Support</span>
             </div>
 
-            <p>To validate the user lifecycle across the entire organization, I provisioned multiple test users and enrolled them into the Okta Verify mobile app.</p>
+            <p>To validate the user lifecycle across the entire organization, I enrolled the test users into the Okta Verify mobile app.</p>
             <ul>
                 <li>Simulated the end-user onboarding experience by setting up MFA on a mobile device.</li>
                 <li>Verified that multiple distinct identities from Active Directory were successfully synced.</li>
