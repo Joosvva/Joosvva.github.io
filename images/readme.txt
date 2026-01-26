@@ -1,6 +1,10 @@
 #put images in this folder
-        |-- architecture.png
-        |-- ad-sync-proof.png
-         |-- sso-log-success.png
-         |-- mfa-verify.png
-         |-- okta-verify-mobile.png
+joshua_profile.jpg
+rusty_cat.jpg
+
+architecture.png
+ad_infra_setup.png
+ad-sync-proof.png
+sso-log-success.png
+mfa-verify.png
+okta-verify-mobile.png
