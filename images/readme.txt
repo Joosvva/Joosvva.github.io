@@ -1,5 +1,6 @@
 #put images in this folder
 
-#profile.jpg     (Your photo)
-#ad-sync.png     (Screenshot 1)
-#sso-log.png     (Screenshot 2)
+        |-- ad-sync-proof.png
+         |-- sso-log-success.png
+         |-- mfa-verify.png
+         |-- okta-verify-mobile.png
